@@ -1,7 +1,6 @@
 package uni.plovdiv.drawingapplication;
 
 import uni.plovdiv.drawingapplication.canvas.Canvas;
-import uni.plovdiv.drawingapplication.menu.MenuBar;
 import uni.plovdiv.drawingapplication.toolbar.ToolBar;
 
 import javax.swing.*;
@@ -29,8 +28,8 @@ public class ApplicationWindow extends JFrame {
     }
 
     private void addPanels() {
-        this.add(new ToolBar(), BorderLayout.WEST);
-        this.add(new Canvas(), BorderLayout.CENTER);
-        this.add(new MenuBar(), BorderLayout.NORTH);
+        JPanel canvas = new Canvas();
+        this.add(canvas, BorderLayout.CENTER);
+        this.add(new ToolBar(canvas), BorderLayout.WEST);
     }
 }
