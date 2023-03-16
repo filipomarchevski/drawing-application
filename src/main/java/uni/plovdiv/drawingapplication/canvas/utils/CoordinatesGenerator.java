@@ -1,4 +1,4 @@
-package uni.plovdiv.drawingapplication.toolbar.utils;
+package uni.plovdiv.drawingapplication.canvas.utils;
 
 import javax.swing.*;
 import java.util.List;

@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
-import static uni.plovdiv.drawingapplication.toolbar.utils.CoordinatesGenerator.generateCoordinates;
+import static uni.plovdiv.drawingapplication.canvas.utils.CoordinatesGenerator.generateCoordinates;
 
 public class Square {
 
