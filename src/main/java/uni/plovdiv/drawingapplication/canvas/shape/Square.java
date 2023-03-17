@@ -17,7 +17,7 @@ public class Square {
 
     private Shape createSquare(JPanel canvas) {
         int initialSideSize = 120;
-        List<Integer> coordinates = generateCoordinates(canvas, initialSideSize);
+        List<Integer> coordinates = generateCoordinates(canvas);
         return new Rectangle(
                 coordinates.get(0),
                 coordinates.get(1),
