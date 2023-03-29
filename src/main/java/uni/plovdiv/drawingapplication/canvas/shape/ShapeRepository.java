@@ -11,7 +11,7 @@ public class ShapeRepository {
     /**
      * The Class<?> will be the actual class of the shape, ex: Square, Triangle ...
      */
-    public static final Map<Shape, Class<?>> shapes = new HashMap<>();
+    private static final Map<Shape, Class<?>> shapes = new HashMap<>();
 
     public static Optional<Shape> selectShape(int x, int y) {
         Set<Shape> storedShapes = shapes.keySet();
@@ -21,7 +21,11 @@ public class ShapeRepository {
                 .findFirst();
     }
 
-    public static Class<?> getTypeOfShape(Shape shape) {
-        return shapes.get(shape);
+    public static void addShape(Shape shape, Class<?> typeOfShape) {
+        shapes.put(shape, typeOfShape);
+    }
+
+    public static Class<?> removeShape(Shape shape) {
+        return shapes.remove(shape);
     }
 }

@@ -12,7 +12,7 @@ public class Square {
         Shape square = createSquare(canvas);
         Graphics2D graphics2D = (Graphics2D) canvas.getGraphics();
         graphics2D.draw(square);
-        ShapeRepository.shapes.put(square, Square.class);
+        ShapeRepository.addShape(square, Square.class);
     }
 
     private Shape createSquare(JPanel canvas) {
