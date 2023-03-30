@@ -1,7 +1,6 @@
 package uni.plovdiv.drawingapplication.canvas;
 
-import uni.plovdiv.drawingapplication.canvas.listeners.KeyListenerImpl;
-import uni.plovdiv.drawingapplication.canvas.listeners.MouseListenerImpl;
+import uni.plovdiv.drawingapplication.canvas.listeners.mouse.MouseListenerImpl;
 
 import javax.swing.*;
 
@@ -12,6 +11,5 @@ public class Canvas extends JPanel {
     public Canvas() {
         this.setBackground(WHITE);
         this.addMouseListener(new MouseListenerImpl());
-        this.addKeyListener(new KeyListenerImpl());
     }
 }

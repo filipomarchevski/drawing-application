@@ -1,19 +1,19 @@
 package uni.plovdiv.drawingapplication.canvas.listeners;
 
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
-public class KeyListenerImpl implements KeyListener {
-    @Override
-    public void keyTyped(KeyEvent e) {
-    }
+import static java.lang.Character.toUpperCase;
+import static uni.plovdiv.drawingapplication.canvas.listeners.ListenerConstants.*;
+
+public class KeyListenerImpl extends KeyAdapter {
 
     @Override
     public void keyPressed(KeyEvent e) {
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-
+        char pressedKey = e.getKeyChar();
+        switch (toUpperCase(pressedKey)) {
+            case 'S' -> selectingMultiple = true;
+            case 'Q' -> selectingMultiple = false;
+        }
     }
 }

@@ -1,6 +1,7 @@
 package uni.plovdiv.drawingapplication;
 
 import uni.plovdiv.drawingapplication.canvas.Canvas;
+import uni.plovdiv.drawingapplication.canvas.listeners.KeyListenerImpl;
 import uni.plovdiv.drawingapplication.toolbar.ToolBar;
 
 import javax.swing.*;
@@ -25,6 +26,7 @@ public class ApplicationWindow extends JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout(7, 7));
         this.getContentPane().setBackground(BEIGE);
+        this.addKeyListener(new KeyListenerImpl());
     }
 
     private void addPanels() {
