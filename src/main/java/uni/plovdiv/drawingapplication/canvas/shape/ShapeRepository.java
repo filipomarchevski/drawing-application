@@ -28,4 +28,9 @@ public class ShapeRepository {
     public static Class<?> removeShape(Shape shape) {
         return shapes.remove(shape);
     }
+
+    public static void updateRepository(Shape oldShape, Shape newShape) {
+        Class<?> oldShapeType = ShapeRepository.removeShape(oldShape);
+        ShapeRepository.addShape(newShape, oldShapeType);
+    }
 }

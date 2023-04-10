@@ -8,15 +8,32 @@ import static uni.plovdiv.drawingapplication.canvas.listeners.SelectedShapeState
 
 public class OnReleaseEvent {
 
-    private final SingleShapeMover singleShapeMover = new SingleShapeMover();
+    private final ShapeRelocator shapeRelocator = new ShapeRelocator();
 
-    private final MultipleShapesMover multipleShapesMover = new MultipleShapesMover();
-
+    /**
+     * If neither of the options are checked, it means that we don't want to move anything.
+     */
     public void release(MouseEvent event) {
-        if (!Objects.isNull(selectedShape)) {
-            singleShapeMover.moveSingleShape(event);
-        } else if (!selectedShapes.isEmpty()) {
-            multipleShapesMover.moveMultipleShapes();
+        if (shouldMoveMultipleShapes()) {
+            shapeRelocator.relocateMultipleShapes(event);
+        } else if (shouldMoveSingleShape()) {
+            shapeRelocator.relocateSingleShape(event);
         }
+    }
+
+    /**
+     * If the set with the selected shoes is not empty,
+     * and we have selected a shape, based on which the other shapes will be moved,
+     * then it moves them.
+     */
+    private boolean shouldMoveMultipleShapes() {
+        return !Objects.isNull(selectedShape) && !selectedShapes.isEmpty();
+    }
+
+    /**
+     * If we only have a selected shape, it will just move that one.
+     */
+    private boolean shouldMoveSingleShape() {
+        return !Objects.isNull(selectedShape);
     }
 }
