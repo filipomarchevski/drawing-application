@@ -1,5 +1,7 @@
 package uni.plovdiv.drawingapplication.canvas.listeners.mouse;
 
+import uni.plovdiv.drawingapplication.canvas.shape.ShapeRelocator;
+
 import java.awt.event.MouseEvent;
 import java.util.Objects;
 

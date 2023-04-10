@@ -1,7 +1,6 @@
-package uni.plovdiv.drawingapplication.canvas.listeners.mouse;
+package uni.plovdiv.drawingapplication.canvas.shape;
 
 import uni.plovdiv.drawingapplication.canvas.listeners.SelectedShapeState;
-import uni.plovdiv.drawingapplication.canvas.shape.ShapeRepository;
 import uni.plovdiv.drawingapplication.design.ColorPalette;
 
 import java.awt.*;

@@ -32,6 +32,6 @@ public class ApplicationWindow extends JFrame {
     private void addPanels() {
         JPanel canvas = new Canvas();
         this.add(canvas, BorderLayout.CENTER);
-        this.add(new ToolBar(canvas), BorderLayout.WEST);
+        this.add(new ToolBar(canvas, this), BorderLayout.WEST);
     }
 }

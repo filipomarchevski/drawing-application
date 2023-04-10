@@ -7,6 +7,6 @@ import java.util.Set;
 public class SelectedShapeState {
 
     public static Shape selectedShape;
-
+    
     public static final Set<Shape> selectedShapes = new HashSet<>();
 }
