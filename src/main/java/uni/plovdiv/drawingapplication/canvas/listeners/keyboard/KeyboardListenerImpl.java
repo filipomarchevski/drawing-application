@@ -1,7 +1,5 @@
 package uni.plovdiv.drawingapplication.canvas.listeners.keyboard;
 
-import uni.plovdiv.drawingapplication.canvas.listeners.SelectedShapeState;
-
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -25,7 +23,6 @@ public class KeyboardListenerImpl extends KeyAdapter {
                 movingSingleShape = true;
                 selectingMultipleShapes = false;
                 movingMultipleShapesBasedOnOne = false;
-                SelectedShapeState.selectedShapes.clear();
             }
         }
     }

@@ -27,15 +27,27 @@ public class ShapeRelocator {
         Graphics2D graphics2D = extractGraphics(event);
         Rectangle relocatedMainShapeBounds = relocateShapeBoundsCoordinates(event);
         relocateOtherShapesBasedOnMainShape(relocatedMainShapeBounds, graphics2D);
-
+        SelectedShapeState.selectedShapes.clear();
+        selectedShape = null;
     }
 
     private void relocateOtherShapesBasedOnMainShape(Rectangle relocatedMainShapeBounds, Graphics2D graphics2D) {
+        var oldShapeBounds = SelectedShapeState.selectedShapes
+                .stream()
+                .map(shape -> new Rectangle(shape.getBounds()))
+                .toList();
+
         var updatedShapes = SelectedShapeState.selectedShapes
                 .stream()
-                .map(shape -> calculateNewCoordinates(relocatedMainShapeBounds, shape))
+                .map(shape -> {
+                    Shape newShape = calculateNewCoordinates(relocatedMainShapeBounds, shape);
+                    Class<?> oldShapeType = ShapeRepository.removeShape(shape);
+                    ShapeRepository.addShape(newShape, oldShapeType);
+                    return newShape;
+                })
                 .toList();
         updatedShapes.forEach(graphics2D::draw);
+        oldShapeBounds.forEach(shape -> removePreviousShape(shape, graphics2D));
     }
 
     private Shape calculateNewCoordinates(Rectangle relocatedMainShapeBounds, Shape shapeToRelocate) {
